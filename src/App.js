@@ -15,15 +15,21 @@ const App = () => {
   //   Particulars: "",
   //   freight: 0,
   // });
-
+  const [inv, setInv] = useState(0);
   return (
     <div className="App d-flex flex-column justify-content-center">
       <Header />
       <Router>
         <Switch>
           <Route path="/company" exact component={Company} />
-          <Route path="/form" exact component={Form123} />
-          <Route path="/items" exact component={Item} />
+          <Route path="/form" exact>
+            {" "}
+            <Form123 inv={inv} setInv={setInv} />{" "}
+          </Route>
+          <Route path="/items" exact>
+            {" "}
+            <Item inv={inv} setInv={setInv} />{" "}
+          </Route>
         </Switch>
       </Router>
     </div>

@@ -41,3 +41,36 @@ export const companynames = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const createitem = (inv, item) => {
+  console.log(`LINE NUMBER 4`);
+  return fetch(`${API}/item/createitem/${inv}`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(item),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => console.log(error));
+};
+
+export const updateform = (gst, inv) => {
+  return fetch(`${API}/form/updategst/${inv}`, {
+    method: "PUT",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ gst: gst }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

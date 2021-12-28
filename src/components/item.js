@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import Total from "./total";
+import { createitem } from "../helper/formHelper";
 
-const Item = () => {
+const Item = ({ inv, setInv }) => {
   const [items, setItems] = useState([]);
 
   const [item, setItem] = useState({
@@ -23,19 +24,27 @@ const Item = () => {
   const onsubmit = (e) => {
     e.preventDefault();
     if (freight) {
-      setItems([...items, item]);
-      setItemrow(true);
-      console.log(items);
-      setItem({
-        ...item,
-        nature: "",
-        Invoice: "",
-        measurement: "",
-        Particulars: "",
-        freight: 0,
+      createitem(inv, item).then((data) => {
+        if (data.error) {
+          // setvalues({ ...values, error: data.error });
+          console.log("eroor in frt end", data.error);
+          setMsg(data.error);
+        } else {
+          setItems([...items, item]);
+          setItemrow(true);
+          console.log(items);
+          setItem({
+            ...item,
+            nature: "",
+            Invoice: "",
+            measurement: "",
+            Particulars: "",
+            freight: 0,
+          });
+          setMsg("");
+          setNext(true);
+        }
       });
-      setMsg("");
-      setNext(true);
     } else {
       setMsg("Enter the freight");
     }
@@ -115,7 +124,9 @@ const Item = () => {
           </div>
         </form>
       </div>
-      <div className="h4">{msg}</div>
+      <div className="h4">
+        {msg} {inv}{" "}
+      </div>
       <div className="w-50 text-center mt-3 table-responsive">
         <table className="table table-striped table-bordered">
           <thead>
@@ -129,7 +140,7 @@ const Item = () => {
           </thead>
           {items.map((it, i) => {
             return (
-              <tbody>
+              <tbody key={i}>
                 <tr>
                   <td>{it.nature}</td>
                   <td>{it.Invoice}</td>
@@ -142,7 +153,7 @@ const Item = () => {
           })}
         </table>
       </div>
-      {next ? <Total /> : ""}
+      {next ? <Total inv={inv} setInv={setInv} /> : ""}
     </div>
   );
 };

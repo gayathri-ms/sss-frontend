@@ -5,7 +5,7 @@ import { createForm, companynames } from "../helper/formHelper";
 import { Link } from "react-router-dom";
 import Item from "./item";
 
-const Form123 = () => {
+const Form123 = ({ inv, setInv }) => {
   const [form, setForm] = useState({
     invoice: 0,
     vehicle_no: "",
@@ -13,7 +13,6 @@ const Form123 = () => {
     from: "",
     to: "",
     consignee: "",
-
     gst_com: "",
   });
 
@@ -62,6 +61,7 @@ const Form123 = () => {
           console.log("eroor in frt end", data.error);
           setMsg(data.error);
         } else {
+          setInv(form.invoice);
           setForm({
             invoice: 0,
             vehicle_no: "",
