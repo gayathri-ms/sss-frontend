@@ -124,9 +124,7 @@ const Item = ({ inv, setInv }) => {
           </div>
         </form>
       </div>
-      <div className="h4">
-        {msg} {inv}{" "}
-      </div>
+      <div className="h4">{msg}</div>
       <div className="w-50 text-center mt-3 table-responsive">
         <table className="table table-striped table-bordered">
           <thead>

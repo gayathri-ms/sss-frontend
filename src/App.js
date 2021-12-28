@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/header";
 import Item from "./components/item";
 import Company from "./components/company";
+import Displaydate from "./components/display";
 
 const App = () => {
   // const [items, setItems] = useState([]);
@@ -19,6 +20,7 @@ const App = () => {
   return (
     <div className="App d-flex flex-column justify-content-center">
       <Header />
+      <Displaydate />
       <Router>
         <Switch>
           <Route path="/company" exact component={Company} />

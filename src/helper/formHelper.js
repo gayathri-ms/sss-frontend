@@ -74,3 +74,13 @@ export const updateform = (gst, inv) => {
       console.log(err);
     });
 };
+
+export const getByDate = (date) => {
+  return fetch(`${API}/form/getform123/${date}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
