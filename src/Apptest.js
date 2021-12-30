@@ -1,5 +1,7 @@
 import { useEffect } from "react";
-import "./App.css";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import App from "./App";
+// import "./App.css";
 
 export default function Apptest() {
   useEffect(() => {
@@ -47,149 +49,130 @@ export default function Apptest() {
 
   return (
     <>
-      <title>Responsive sidebar submenus</title>
+      <Router>
+        <title>Responsive sidebar submenus</title>
 
-      <header className="header">
-        <div className="header__container">
-          <img
-            src="https://pruebaapp.ga/wp-content/uploads/2021/03/profile-1-150x150.jpeg"
-            alt=""
-            className="header__img"
-          />
+        <header className="header">
+          <div className="header__container">
+            <img alt="" className="header__img" />
 
-          <a href="#" className="header__logo">
-            YOUR LOGO
-          </a>
+            <Link to="/" className="header__logo">
+              YOUR LOGO
+            </Link>
 
-          <div className="header__search">
+            {/* <div className="header__search">
             <input
               type="search"
               placeholder="Search"
               className="header__input"
             />
             <i className="bx bx-search header__icon"></i>
-          </div>
+          </div> */}
 
-          <div className="header__toggle">
-            <i className="bx bx-menu" id="header-toggle"></i>
-          </div>
-        </div>
-      </header>
-
-      <div className="nav" id="navbar">
-        <nav className="nav__container">
-          <div>
-            <a href="#" className="nav__link nav__logo">
-              <i className="bx bxs-disc nav__icon"></i>
-              <span className="nav__logo-name">Bedimcode</span>
-            </a>
-
-            <div className="nav__list">
-              <div className="nav__items">
-                <h3 className="nav__subtitle">Profile</h3>
-
-                <a href="#" className="nav__link active">
-                  <i className="bx bx-home nav__icon"></i>
-                  <span className="nav__name">Home</span>
-                </a>
-
-                <div className="nav__dropdown">
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-user nav__icon"></i>
-                    <span className="nav__name">Profile</span>
-                    <i className="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
-                  </a>
-
-                  <div className="nav__dropdown-collapse">
-                    <div className="nav__dropdown-content">
-                      <a href="#" className="nav__dropdown-item">
-                        Passwords
-                      </a>
-                      <a href="#" className="nav__dropdown-item">
-                        Mail
-                      </a>
-                      <a href="#" className="nav__dropdown-item">
-                        Accounts
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <a href="#" className="nav__link">
-                  <i className="bx bx-message-rounded nav__icon"></i>
-                  <span className="nav__name">Messages</span>
-                </a>
-              </div>
-
-              <div className="nav__items">
-                <h3 className="nav__subtitle">Menu</h3>
-
-                <div className="nav__dropdown">
-                  <a href="#" className="nav__link">
-                    <i className="bx bx-bell nav__icon"></i>
-                    <span className="nav__name">Notifications</span>
-                    <i className="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
-                  </a>
-
-                  <div className="nav__dropdown-collapse">
-                    <div className="nav__dropdown-content">
-                      <a href="#" className="nav__dropdown-item">
-                        Blocked
-                      </a>
-                      <a href="#" className="nav__dropdown-item">
-                        Silenced
-                      </a>
-                      <a href="#" className="nav__dropdown-item">
-                        Publish
-                      </a>
-                      <a href="#" className="nav__dropdown-item">
-                        Program
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                <a href="#" className="nav__link">
-                  <i className="bx bx-compass nav__icon"></i>
-                  <span className="nav__name">Explore</span>
-                </a>
-                <a href="#" className="nav__link">
-                  <i className="bx bx-bookmark nav__icon"></i>
-                  <span className="nav__name">Saved</span>
-                </a>
-              </div>
+            <div className="header__toggle">
+              <i className="bx bx-menu" id="header-toggle"></i>
             </div>
           </div>
+        </header>
 
-          <a href="#" className="nav__link nav__logout">
-            <i className="bx bx-log-out nav__icon"></i>
-            <span className="nav__name">Log Out</span>
-          </a>
-        </nav>
-      </div>
+        <div className="nav" id="navbar">
+          <nav className="nav__container">
+            <div>
+              <Link to="/" className="nav__link nav__logo">
+                <i className="bx bxs-disc nav__icon"></i>
+                <span className="nav__logo-name">SSST</span>
+              </Link>
 
-      <main>
-        <section>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
-            vel illum fuga unde cum, voluptates magni molestias eveniet culpa
-            autem ut, totam veniam, suscipit tempore ullam pariatur est at
-            asperiores?
-          </p>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
-            vel illum fuga unde cum, voluptates magni molestias eveniet culpa
-            autem ut, totam veniam, suscipit tempore ullam pariatur est at
-            asperiores?
-          </p>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt
-            vel illum fuga unde cum, voluptates magni molestias eveniet culpa
-            autem ut, totam veniam, suscipit tempore ullam pariatur est at
-            asperiores?
-          </p>
-        </section>
-      </main>
+              <div className="nav__list">
+                <div className="nav__items">
+                  <Link to="/" className="nav__link active">
+                    <i className="bx bx-home nav__icon"></i>
+                    <span className="nav__name">Home</span>
+                  </Link>
+
+                  <div className="nav__dropdown">
+                    <div className="nav__link">
+                      <i className="bi bi-file-check nav__icon"></i>
+                      <span className="nav__name">Display</span>
+                      <i className="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
+                    </div>
+
+                    <div className="nav__dropdown-collapse">
+                      <div className="nav__dropdown-content">
+                        <Link to="/displaydate" className="nav__dropdown-item">
+                          Date
+                        </Link>
+                        <Link to="/displaycom" className="nav__dropdown-item">
+                          Company Name
+                        </Link>
+                        {/* <a href="#" className="nav__dropdown-item">
+                          Accounts
+                        </a> */}
+                      </div>
+                    </div>
+                  </div>
+
+                  <Link to="/company" className="nav__link">
+                    <i className="bi bi-person-plus nav__icon"></i>
+                    <span className="nav__name">Add Company</span>
+                  </Link>
+                  <Link to="/form" className="nav__link">
+                    <i className="bi bi-plus-square nav__icon"></i>
+                    <span className="nav__name">Add Form</span>
+                  </Link>
+                </div>
+
+                <div className="nav__items">
+                  <h3 className="nav__subtitle">Menu</h3>
+
+                  <div className="nav__dropdown">
+                    <a href="#" className="nav__link">
+                      <i className="bx bx-bell nav__icon"></i>
+                      <span className="nav__name">Notifications</span>
+                      <i className="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
+                    </a>
+
+                    <div className="nav__dropdown-collapse">
+                      <div className="nav__dropdown-content">
+                        <a href="#" className="nav__dropdown-item">
+                          Blocked
+                        </a>
+                        <a href="#" className="nav__dropdown-item">
+                          Silenced
+                        </a>
+                        <a href="#" className="nav__dropdown-item">
+                          Publish
+                        </a>
+                        <a href="#" className="nav__dropdown-item">
+                          Program
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                  <a href="#" className="nav__link">
+                    <i className="bx bx-compass nav__icon"></i>
+                    <span className="nav__name">Explore</span>
+                  </a>
+                  <a href="#" className="nav__link">
+                    <i className="bx bx-bookmark nav__icon"></i>
+                    <span className="nav__name">Saved</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" className="nav__link nav__logout">
+              <i className="bx bx-log-out nav__icon"></i>
+              <span className="nav__name">Log Out</span>
+            </a>
+          </nav>
+        </div>
+
+        <main>
+          <App />
+        </main>
+      </Router>
     </>
   );
 }

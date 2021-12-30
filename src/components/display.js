@@ -12,11 +12,11 @@ const Displaydate = () => {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center align-item-center">
+    <div className="d-flex flex-column justify-content-center text-center align-item-center">
       <div className="mt-5 mb-3">
-        <label className=" h4">Date</label>
+        <label className=" h5">Date</label>
         <input
-          className="mx-3 my_primary p-2 h5"
+          className="mx-3 my_primary p-2 h6"
           type="date"
           onChange={(e) => setDate(e.target.value)}
         />

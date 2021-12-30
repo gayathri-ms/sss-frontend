@@ -82,34 +82,34 @@ const Form123 = ({ inv, setInv }) => {
   };
 
   return (
-    <div className=" mx-2 d-flex flex-column bd-highlight h-auto">
-      <hr className="w-50 border border-3" />
+    <div className=" mx-2 d-flex flex-column  bd-highlight h-auto">
+      <hr className="w-100 border border-1" />
       <div className="d-md-flex mt-2 w-100 flex-row justify-content-center">
         <div className="mt-2">
-          <label>Invoice No:</label>
+          <label className="h6 mx-2">Invoice No:</label>
           <input
             type="number"
             value={invoice}
             onChange={onHandle("invoice")}
-            className="w-25 border-top border-left border-right ml-2"
+            className="w-25 my_primary ml-2"
           />
         </div>
         <div className="mt-2">
-          <label>Vehicle No:</label>
+          <label className="h6 mx-2">Vehicle No:</label>
           <input
             type="text"
             value={vehicle_no}
             onChange={onHandle("vehicle_no")}
-            className="w-50 border-top border-left border-right ml-2"
+            className="w-50 my_primary ml-2"
           />
         </div>
       </div>
-      <hr className="w-50 border border-3" />
+      <hr className="w-100 border border-1" />
       <div className="d-flex justify-content-center">
         <form onSubmit={onsubmit} className="d-flex flex-column ">
           <div className="d-md-flex flex-row text-left">
             <div className="mx-4 d-flex flex-column">
-              <label className="text-left blockquote mt-4 ">Consignor</label>
+              <label className="text-left h5 mt-4 ">Consignor</label>
               <div className="dropdown">
                 <select
                   onChange={onHandleChange}
@@ -125,7 +125,7 @@ const Form123 = ({ inv, setInv }) => {
             </div>
 
             <div className="mx-4 d-flex flex-column">
-              <label className="text-left blockquote mt-4 ">Consignee</label>
+              <label className="text-left h5 mt-4 ">Consignee</label>
               <input
                 className="p-2 my_primary"
                 type="text"
@@ -139,7 +139,7 @@ const Form123 = ({ inv, setInv }) => {
 
           <div className="d-md-flex flex-row text-left">
             <div className="mx-4 d-flex flex-column">
-              <label className="text-left blockquote mt-4">From Place</label>
+              <label className="text-left h5 mt-4">From Place</label>
               <input
                 className="p-2 my_primary my_cursor"
                 disabled
@@ -149,7 +149,7 @@ const Form123 = ({ inv, setInv }) => {
               />
             </div>
             <div className="mx-4 d-flex flex-column">
-              <label className="text-left blockquote mt-4">To Place</label>
+              <label className="text-left h5 mt-4">To Place</label>
               <input
                 className="p-2 my_primary"
                 value={to}
@@ -160,9 +160,7 @@ const Form123 = ({ inv, setInv }) => {
             </div>
           </div>
 
-          <label className="text-left mx-4 blockquote mt-4">
-            Party GSTIN No
-          </label>
+          <label className="text-left mx-4 h5 mt-4">Party GSTIN No</label>
           <input
             className="p-2 mx-4 my_primary my_cursor"
             type="text"
@@ -172,7 +170,7 @@ const Form123 = ({ inv, setInv }) => {
             placeholder={form.gst_com}
           />
 
-          <div>
+          <div className="text-center">
             <button
               type="submit"
               className="btn btn-outline-danger mt-3 btn-lg"
@@ -194,7 +192,7 @@ const Form123 = ({ inv, setInv }) => {
         </form>
       </div>
       {/* <div>{JSON.stringify(companies)}</div> */}
-      <div>
+      <div className="text-center">
         <p className="h4">{msg} </p>
       </div>
       {/* <div>{next ? <Item /> : ""}</div> */}

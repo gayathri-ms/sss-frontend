@@ -35,7 +35,7 @@ const Company = () => {
       <div className="d-flex justify-content-center">
         <form onSubmit={onsubmit} className="d-flex flex-column ">
           <div className="d-md-flex flex-row text-left">
-            <div className="mx-4 d-flex flex-column">
+            <div className="mx-4 d-flex flex-column ">
               <label className="text-left blockquote mt-4 ">Company Name</label>
               <input
                 className="p-2 my_primary "
@@ -73,7 +73,7 @@ const Company = () => {
             </div>
           </div>
 
-          <div>
+          <div className="text-center">
             <button
               type="submit"
               className="btn btn-outline-danger mt-3 btn-lg"

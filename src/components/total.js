@@ -32,14 +32,17 @@ const Total = ({ inv, setInv }) => {
 
   return (
     <div>
-      <div className="">
-        <label>GST in %</label>
+      <div className="text-center">
+        <label className="">GST in %</label>
         <input
           className="mx-4 my_primary"
           type="number"
           value={gst}
           onChange={(e) => setGst(e.target.value)}
         />
+        <button onClick={onSubmit} className="btn btn-info">
+          Next
+        </button>
         {next ? (
           <div className="my-4">
             <div className="d-flex mt-3 ">
@@ -54,9 +57,7 @@ const Total = ({ inv, setInv }) => {
             </div>
           </div>
         ) : (
-          <button onClick={onSubmit} className="btn btn-info">
-            Next
-          </button>
+          ""
         )}
       </div>
       {msg}

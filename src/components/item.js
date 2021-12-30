@@ -113,7 +113,7 @@ const Item = ({ inv, setInv }) => {
             placeholder="freight"
           />
 
-          <div>
+          <div className="text-center">
             <button
               type="submit"
               className="btn btn-outline-danger mt-3 btn-lg"
@@ -124,7 +124,7 @@ const Item = ({ inv, setInv }) => {
           </div>
         </form>
       </div>
-      <div className="h4">{msg}</div>
+      <div className="h4 text-center">{msg}</div>
       <div className="w-50 text-center mt-3 table-responsive">
         <table className="table table-striped table-bordered">
           <thead>

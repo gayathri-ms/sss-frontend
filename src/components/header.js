@@ -2,9 +2,9 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="">
-      <div className="d-flex flex-column justify-content-center ">
-        <p>உ</p>
+    <div className="mt-5 text-center">
+      <div className="d-flex flex-column justify-content-center text-center ">
+        <p className="mt-5">உ</p>
         <p>அருள்மிகு வீரக்குமார் துணை</p>
       </div>
       <div>

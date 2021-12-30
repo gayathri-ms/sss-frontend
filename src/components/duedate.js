@@ -12,9 +12,14 @@ const Duedate = () => {
 
   return (
     <div className="d-flex flex-column mt-5 justify-content-center align-item-center">
-      <div>
-        <p className="h3">Due Dates</p>
-      </div>
+      {details.length !== 0 ? (
+        <div>
+          <p className="h3">Due Dates</p>
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className="d-flex justify-content-center">
         {details.length != 0 ? (
           <div className="w-50 text-center mt-3 table-responsive">
@@ -48,7 +53,9 @@ const Duedate = () => {
             </table>
           </div>
         ) : (
-          <div>No Dues left</div>
+          <div>
+            <p className="h3 text-success">No Dues left</p>
+          </div>
         )}
       </div>
     </div>
