@@ -25,7 +25,7 @@ const Company = () => {
           address: "",
           GST: "",
         });
-        setMsg("");
+        setMsg("Added Successfully");
       }
     });
   };
@@ -84,7 +84,7 @@ const Company = () => {
           </div>
         </form>
       </div>
-      {msg}
+      <p className="h3 mt-4 text-success">{msg}</p>
     </div>
   );
 };

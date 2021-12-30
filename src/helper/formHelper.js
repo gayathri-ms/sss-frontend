@@ -84,3 +84,23 @@ export const getByDate = (date) => {
     })
     .catch((err) => console.log(err));
 };
+
+export const getByCompany = (company) => {
+  return fetch(`${API}/form/getform/${company}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const dues = () => {
+  return fetch(`${API}/form/getnotified`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
