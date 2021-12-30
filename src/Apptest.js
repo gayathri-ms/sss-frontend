@@ -120,6 +120,27 @@ export default function Apptest() {
                     <i className="bi bi-plus-square nav__icon"></i>
                     <span className="nav__name">Add Form</span>
                   </Link>
+                  <div className="nav__dropdown">
+                    <div className="nav__link">
+                      <i className="bi bi-paypal nav__icon"></i>
+                      <span className="nav__name">Payments</span>
+                      <i className="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
+                    </div>
+
+                    <div className="nav__dropdown-collapse">
+                      <div className="nav__dropdown-content">
+                        <Link to="/balance" className="nav__dropdown-item">
+                          Balance Sheet
+                        </Link>
+                        <Link to="/displaycom" className="nav__dropdown-item">
+                          Company Name
+                        </Link>
+                        {/* <a href="#" className="nav__dropdown-item">
+                          Accounts
+                        </a> */}
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="nav__items">

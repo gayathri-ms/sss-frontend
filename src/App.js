@@ -10,6 +10,8 @@ import Displaycomp from "./components/dis_com";
 import Duedate from "./components/duedate";
 import Home from "./components/home";
 import { Sidebar, SidebarItem } from "react-responsive-sidebar";
+import Payment from "./components/payment";
+import Pay_com from "./components/pay_com";
 
 const App = () => {
   // const [items, setItems] = useState([]);
@@ -42,6 +44,12 @@ const App = () => {
         </Route>
         <Route path="/displaycom" exact>
           <Displaycomp inv={inv} setInv={setInv} />
+        </Route>
+        <Route path="/balance" exact>
+          <Pay_com inv={inv} setInv={setInv} />
+        </Route>
+        <Route path="/payment" exact>
+          <Payment inv={inv} setInv={setInv} />
         </Route>
       </Switch>
     </div>

@@ -104,3 +104,23 @@ export const dues = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const totalBalance = () => {
+  return fetch(`${API}/form/total`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
+
+export const payment = () => {
+  return fetch(`${API}/form/payment`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => console.log(err));
+};
