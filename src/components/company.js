@@ -84,7 +84,7 @@ const Company = () => {
           </div>
         </form>
       </div>
-      <p className="h3 mt-4 text-success">{msg}</p>
+      <p className="h3 mt-4 text-center text-success">{msg}</p>
     </div>
   );
 };

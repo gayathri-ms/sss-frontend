@@ -124,3 +124,27 @@ export const payment = () => {
     })
     .catch((err) => console.log(err));
 };
+
+export const updatebalance = (amt, inv) => {
+  return fetch(`${API}/form/updatebalance/${inv}/${amt}`, {
+    method: "PUT",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
+export const getinvoice = (id) => {
+  return fetch(`${API}/form/getinvoice/${id}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

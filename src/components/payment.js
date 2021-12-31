@@ -11,7 +11,7 @@ const Payment = () => {
 
   return (
     <div>
-      <div className="text-success h4">
+      <div className="text-success h4 mt-5">
         <p>Total Balance to be received - {total} </p>
       </div>
     </div>

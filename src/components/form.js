@@ -193,7 +193,7 @@ const Form123 = ({ inv, setInv }) => {
       </div>
       {/* <div>{JSON.stringify(companies)}</div> */}
       <div className="text-center">
-        <p className="h4">{msg} </p>
+        <p className="h4 mt-4">{msg} </p>
       </div>
       {/* <div>{next ? <Item /> : ""}</div> */}
     </div>

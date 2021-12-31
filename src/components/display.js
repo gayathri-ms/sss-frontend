@@ -4,10 +4,16 @@ import { getByDate } from "../helper/formHelper";
 const Displaydate = () => {
   const [date, setDate] = useState("");
   const [details, setDetails] = useState([]);
+  const [msg, setMsg] = useState(false);
 
   const onSubmit = () => {
     getByDate(date)
-      .then((data) => setDetails(data))
+      .then((data) => {
+        setDetails(data);
+        if (data.length > 0) {
+          setMsg(false);
+        } else setMsg(true);
+      })
       .catch((err) => console.log("errr", err));
   };
 
@@ -57,6 +63,7 @@ const Displaydate = () => {
           </table>
         </div>
       </div>
+      <div>{msg ? <p className="text-center h4">No Data Found</p> : ""}</div>
     </div>
   );
 };

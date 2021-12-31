@@ -105,6 +105,9 @@ export default function Apptest() {
                         <Link to="/displaycom" className="nav__dropdown-item">
                           Company Name
                         </Link>
+                        <Link to="/displayinv" className="nav__dropdown-item">
+                          Invoice
+                        </Link>
                         {/* <a href="#" className="nav__dropdown-item">
                           Accounts
                         </a> */}
@@ -132,8 +135,11 @@ export default function Apptest() {
                         <Link to="/balance" className="nav__dropdown-item">
                           Balance Sheet
                         </Link>
-                        <Link to="/displaycom" className="nav__dropdown-item">
-                          Company Name
+                        <Link
+                          to="/balanceupdate"
+                          className="nav__dropdown-item"
+                        >
+                          Update Balance
                         </Link>
                         {/* <a href="#" className="nav__dropdown-item">
                           Accounts
@@ -142,7 +148,7 @@ export default function Apptest() {
                     </div>
                   </div>
                 </div>
-
+                {/* 
                 <div className="nav__items">
                   <h3 className="nav__subtitle">Menu</h3>
 
@@ -179,7 +185,7 @@ export default function Apptest() {
                     <i className="bx bx-bookmark nav__icon"></i>
                     <span className="nav__name">Saved</span>
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
 
