@@ -148,3 +148,36 @@ export const getinvoice = (id) => {
       console.log(err);
     });
 };
+
+export const printpdf = (inv) => {
+  console.log(`LINE NUMBER 4`);
+  return fetch(`${API}/printpdf`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ inv: inv }),
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => console.log(error));
+};
+
+export const getpdf = () => {
+  return fetch(`${API}/getpdf`, {
+    method: "GET",
+    // response: "Blob",
+    headers: {
+      Accept: "application/pdf",
+      "Content-Type": "application/pdf",
+    },
+  })
+    .then((response) => {
+      return response.blob();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
