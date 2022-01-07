@@ -2,10 +2,10 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className="mt-5 text-center">
-      <div className="d-flex flex-column justify-content-center text-center ">
-        <p className="mt-5">உ</p>
-        <p>அருள்மிகு வீரக்குமார் துணை</p>
+    <div className="mt-4 lh-1 text-center">
+      <div className="d-flex lh-1 flex-column justify-content-center text-center ">
+        <p className="mt-2">உ</p>
+        <p className="">அருள்மிகு வீரக்குமார் துணை</p>
       </div>
       <div>
         <p className="h3 text-danger">SHREE SABARI SASHTHA TRANSPORT</p>
@@ -17,12 +17,11 @@ const Header = () => {
           <br /> Pichampalayam Pudur Post, Tirupur - 641 602. TamilNadu, India.
         </p>
       </div>
-      <div className="">
-        <p className="">&nbsp; &nbsp; PH:95850 07007</p>
-      </div>
-      <div className="">
+      <div className="d-flex justify-content-center mb-2">
+        <p className="mx-3 h6">&nbsp; &nbsp; PH: 95850 07007</p>
         <p className="h6">GSTIN: 33CMPPP4728P1Z7</p>
       </div>
+      <div className=""></div>
     </div>
   );
 };

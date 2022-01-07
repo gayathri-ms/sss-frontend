@@ -14,6 +14,7 @@ import Payment from "./components/payment";
 import Pay_com from "./components/pay_com";
 import Updatebalance from "./components/updatebalance";
 import Dis_inv from "./components/dis_inv";
+import Print from "./components/print";
 
 const App = () => {
   // const [items, setItems] = useState([]);
@@ -58,6 +59,9 @@ const App = () => {
         </Route>
         <Route path="/displayinv" exact>
           <Dis_inv />
+        </Route>
+        <Route path="/print" exact>
+          <Print />
         </Route>
       </Switch>
     </div>

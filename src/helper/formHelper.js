@@ -149,6 +149,18 @@ export const getinvoice = (id) => {
     });
 };
 
+export const getitem = (id) => {
+  return fetch(`${API}/item/getitem/${id}`, {
+    method: "GET",
+  })
+    .then((response) => {
+      return response.json();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 export const printpdf = (inv) => {
   console.log(`LINE NUMBER 4`);
   return fetch(`${API}/printpdf`, {

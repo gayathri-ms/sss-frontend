@@ -115,6 +115,7 @@ const Dis_inv = () => {
           </table>
         </div>
       </div>
+
       <div>{!msg ? <p className="text-center h4">No Data Found</p> : ""}</div>
     </div>
   );

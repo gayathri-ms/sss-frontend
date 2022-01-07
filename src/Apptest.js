@@ -147,6 +147,10 @@ export default function Apptest() {
                       </div>
                     </div>
                   </div>
+                  <Link to="/print" className="nav__link active">
+                    <i className="bx bx-printer nav__icon"></i>
+                    <span className="nav__name">Print</span>
+                  </Link>
                 </div>
                 {/* 
                 <div className="nav__items">
