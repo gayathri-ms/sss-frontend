@@ -57,7 +57,7 @@ export default function Apptest() {
             <img alt="" className="header__img" />
 
             <Link to="/" className="header__logo">
-              YOUR LOGO
+              <img className="header__img" src="/ssst logo.png" alt="" />
             </Link>
 
             {/* <div className="header__search">
