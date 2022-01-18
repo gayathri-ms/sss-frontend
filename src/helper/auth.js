@@ -1,13 +1,17 @@
 import { API } from "../backend";
 
-export const signup = (user) => {
-  return fetch(`${API}/login`, {
+export const signup = (username, email, password) => {
+  return fetch(`${API}/user/signup`, {
     method: "POST",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(user),
+    body: JSON.stringify({
+      username: username,
+      email: email,
+      password: password,
+    }),
   })
     .then((response) => {
       return response.json();

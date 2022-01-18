@@ -118,7 +118,7 @@ export default function Apptest() {
                 ) : (
                   ""
                 )}
-                {isAuthenticated() ? (
+                {isAuthenticated() && isAuthenticated().user.role === 1 ? (
                   <Link to="/company" className="nav__link">
                     <i className="bi bi-person-plus nav__icon"></i>
                     <span className="nav__name">Add Company</span>
@@ -127,7 +127,7 @@ export default function Apptest() {
                   ""
                 )}
 
-                {isAuthenticated() ? (
+                {isAuthenticated() && isAuthenticated().user.role === 1 ? (
                   <Link to="/form" className="nav__link">
                     <i className="bi bi-plus-square nav__icon"></i>
                     <span className="nav__name">Add Form</span>
