@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { totalBalance } from "../helper/formHelper";
 
 const Payment = () => {
   const [total, setTotal] = useState(0);
+  const { user, token } = isAuthenticated();
+
   useEffect(() => {
-    totalBalance()
+    totalBalance(user, token)
       .then((data) => setTotal(data.total))
       .catch((err) => console.log(err));
   }, []);

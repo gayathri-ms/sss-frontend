@@ -15,6 +15,11 @@ import Pay_com from "./components/pay_com";
 import Updatebalance from "./components/updatebalance";
 import Dis_inv from "./components/dis_inv";
 import Print from "./components/print";
+import Signin from "./components/signin";
+import { isAuthenticated } from "./helper/auth";
+import Signup from "./components/signup";
+
+//export const user = isAuthenticated().user;
 
 const App = () => {
   // const [items, setItems] = useState([]);
@@ -26,9 +31,10 @@ const App = () => {
   //   freight: 0,
   // });
   const [inv, setInv] = useState(0);
+
   return (
     <div className="App d-flex flex-column justify-content-center">
-      <Header />
+      {isAuthenticated() ? <Header /> : ""}
 
       {/* <Displaydate /> */}
       {/* <Displaycomp /> */}
@@ -62,6 +68,12 @@ const App = () => {
         </Route>
         <Route path="/print" exact>
           <Print />
+        </Route>
+        <Route path="/signin" exact>
+          <Signin />
+        </Route>
+        <Route path="/signup" exact>
+          <Signup />
         </Route>
       </Switch>
     </div>

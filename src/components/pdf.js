@@ -5,20 +5,20 @@ import { getpdf, printpdf } from "../helper/formHelper";
 const Pdf = () => {
   const [inv, setInv] = useState(0);
 
-  const onSubmit = () => {
-    printpdf(inv).then((data) => {
-      console.log("inside printpdf");
-      getpdf().then((res) => {
-        console.log("res", res);
-        const pdf = new Blob([res.data], { type: "application/pdf" });
-        saveAs(pdf, "invoice.pdf");
-      });
-    });
-  };
+  // const onSubmit = () => {
+  //   printpdf(inv).then((data) => {
+  //     console.log("inside printpdf");
+  //     getpdf().then((res) => {
+  //       console.log("res", res);
+  //       const pdf = new Blob([res.data], { type: "application/pdf" });
+  //       saveAs(pdf, "invoice.pdf");
+  //     });
+  //   });
+  // };
 
   return (
     <div className="text-center mt-5 mb-3">
-      <label className="h5">Invoice No :</label>
+      {/* <label className="h5">Invoice No :</label>
       <input
         className="mx-3 my_primary p-2 h6"
         type="number"
@@ -27,7 +27,7 @@ const Pdf = () => {
       />
       <button className="btn mx-3 h4 bg-info text-white p-2" onClick={onSubmit}>
         Download Pdf
-      </button>
+      </button> */}
     </div>
   );
 };

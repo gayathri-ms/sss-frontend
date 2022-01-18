@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { getByDate } from "../helper/formHelper";
 
 const Displaydate = () => {
   const [date, setDate] = useState("");
   const [details, setDetails] = useState([]);
   const [msg, setMsg] = useState(false);
+  const { user, token } = isAuthenticated();
 
   const onSubmit = () => {
-    getByDate(date)
+    getByDate(date, user, token)
       .then((data) => {
         setDetails(data);
         if (data.length > 0) {

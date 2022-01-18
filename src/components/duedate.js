@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { dues } from "../helper/formHelper";
-
 const Duedate = () => {
   const [details, setDetails] = useState([]);
-
+  const { user, token } = isAuthenticated();
   useEffect(() => {
-    dues()
+    dues(user, token)
       .then((data) => setDetails(data))
       .catch((err) => console.log(err));
   }, []);

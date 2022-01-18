@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import Total from "./total";
 import { createitem } from "../helper/formHelper";
+import { isAuthenticated } from "../helper/auth";
 
 const Item = ({ inv, setInv }) => {
   const [items, setItems] = useState([]);
+  const { user, token } = isAuthenticated();
 
   const [item, setItem] = useState({
     nature: "",
@@ -24,7 +26,7 @@ const Item = ({ inv, setInv }) => {
   const onsubmit = (e) => {
     e.preventDefault();
     if (freight) {
-      createitem(inv, item).then((data) => {
+      createitem(inv, item, user, token).then((data) => {
         if (data.error) {
           // setvalues({ ...values, error: data.error });
           console.log("eroor in frt end", data.error);

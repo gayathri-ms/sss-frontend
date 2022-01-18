@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { updateform } from "../helper/formHelper";
 import "../App.css";
+import { isAuthenticated } from "../helper/auth";
 
 const Total = ({ inv, setInv }) => {
   const [gst, setGst] = useState(0);
@@ -10,11 +11,12 @@ const Total = ({ inv, setInv }) => {
     total: 0,
     grandtotal: 0,
   });
+  const { user, token } = isAuthenticated();
 
   const onSubmit = (e) => {
     e.preventDefault();
     if (gst) {
-      updateform(gst, inv).then((data) => {
+      updateform(gst, inv, user, token).then((data) => {
         console.log("data>>>>>>>", data);
 
         if (data.error) {

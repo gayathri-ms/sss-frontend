@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { companynames, getByCompany } from "../helper/formHelper";
 
 const Displaycomp = () => {
   const [companies, setCompanies] = useState([]);
   const [comp, setComp] = useState("");
   const [details, setDetails] = useState([]);
+  const { user, token } = isAuthenticated();
 
   useEffect(() => {
-    companynames()
+    companynames(user, token)
       .then((data) => {
         setCompanies(data);
       })
@@ -18,7 +20,7 @@ const Displaycomp = () => {
 
   const onSubmit = () => {
     console.log(comp);
-    getByCompany(comp)
+    getByCompany(comp, user, token)
       .then((data) => setDetails(data))
       .catch((err) => console.log("errr", err));
   };

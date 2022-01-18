@@ -5,12 +5,14 @@ import App from "./App";
 import Apptest from "./Apptest";
 import Pdf from "./components/pdf";
 import Print from "./components/print";
-
+import Signin from "./components/signin";
+import { BrowserRouter as Router } from "react-router-dom";
+import Dummy from "./dummy";
 ReactDOM.render(
   <StrictMode>
-    <Apptest />
-    {/* <Pdf /> */}
-    {/* <Print /> */}
+    <Router>
+      <Apptest />
+    </Router>
   </StrictMode>,
   document.getElementById("root")
 );

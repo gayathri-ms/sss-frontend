@@ -1,10 +1,26 @@
 import { useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Link,
+  withRouter,
+} from "react-router-dom";
 import App from "./App";
-import { isAuthenticated, signout } from "./helper/auth";
+import { isAuthenticated } from "./helper/auth";
 // import "./App.css";
 
-export default function Apptest() {
+const currentTab = (history, path) => {
+  console.log("history", history);
+  if (history.location.pathname === path) {
+    console.log(history.location.pathname);
+    return { color: "#50DBB4" };
+  } else {
+    return { color: "white" };
+  }
+};
+
+const Dummy = ({ history }) => {
   useEffect(() => {
     /*==================== SHOW NAVBAR ====================*/
     const showMenu = (headerToggle, navbarId) => {
@@ -56,7 +72,11 @@ export default function Apptest() {
         <div className="header__container">
           <img alt="" className="header__img" />
 
-          <Link to="/" className="header__logo fonts">
+          <Link
+            style={currentTab(history, "/")}
+            to="/"
+            className="header__logo fonts"
+          >
             {/* <img className="header__img" src="/ssst logo.png" alt="" /> */}
             SSST
           </Link>
@@ -86,7 +106,11 @@ export default function Apptest() {
 
             <div className="nav__list">
               <div className="nav__items">
-                <Link to="/" className="nav__link active">
+                <Link
+                  style={currentTab(history, "/")}
+                  to="/"
+                  className="nav__link active"
+                >
                   <i className="bx bx-home nav__icon"></i>
                   <span className="nav__name">Home</span>
                 </Link>
@@ -100,13 +124,25 @@ export default function Apptest() {
 
                     <div className="nav__dropdown-collapse">
                       <div className="nav__dropdown-content">
-                        <Link to="/displaydate" className="nav__dropdown-item">
+                        <Link
+                          style={currentTab(history, "/displaydate")}
+                          to="/displaydate"
+                          className="nav__dropdown-item"
+                        >
                           Date
                         </Link>
-                        <Link to="/displaycom" className="nav__dropdown-item">
+                        <Link
+                          style={currentTab(history, "/displaycom")}
+                          to="/displaycom"
+                          className="nav__dropdown-item"
+                        >
                           Company Name
                         </Link>
-                        <Link to="/displayinv" className="nav__dropdown-item">
+                        <Link
+                          style={currentTab(history, "/displayinv")}
+                          to="/displayinv"
+                          className="nav__dropdown-item"
+                        >
                           Invoice
                         </Link>
                         {/* <a href="#" className="nav__dropdown-item">
@@ -119,7 +155,11 @@ export default function Apptest() {
                   ""
                 )}
                 {isAuthenticated() ? (
-                  <Link to="/company" className="nav__link">
+                  <Link
+                    style={currentTab(history, "/company")}
+                    to="/company"
+                    className="nav__link"
+                  >
                     <i className="bi bi-person-plus nav__icon"></i>
                     <span className="nav__name">Add Company</span>
                   </Link>
@@ -128,7 +168,11 @@ export default function Apptest() {
                 )}
 
                 {isAuthenticated() ? (
-                  <Link to="/form" className="nav__link">
+                  <Link
+                    style={currentTab(history, "/form")}
+                    to="/form"
+                    className="nav__link"
+                  >
                     <i className="bi bi-plus-square nav__icon"></i>
                     <span className="nav__name">Add Form</span>
                   </Link>
@@ -213,24 +257,10 @@ export default function Apptest() {
                 </div> */}
             </div>
           </div>
-
           {isAuthenticated() ? (
             <a href="#" className="nav__link nav__logout">
               <i className="bx bx-log-out nav__icon"></i>
-              <span
-                className="nav__name"
-                onClick={() => {
-                  signout(() => {
-                    window.location.reload(false);
-                    // console.log("isAuthen", isAuthenticated());
-                    if (!isAuthenticated()) {
-                      window.location.replace("http://localhost:3001/");
-                    }
-                  });
-                }}
-              >
-                Log Out
-              </span>
+              <span className="nav__name">Log Out</span>
             </a>
           ) : (
             ""
@@ -243,4 +273,6 @@ export default function Apptest() {
       </main>
     </>
   );
-}
+};
+
+export default withRouter(Dummy);

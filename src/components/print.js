@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { getinvoice, getitem } from "../helper/formHelper";
 
 const Print = () => {
   const [inv, setInv] = useState(0);
+  const { user, token } = isAuthenticated();
+  const [msg, setMsg] = useState("");
   const [invdet, setInvdet] = useState({
     invoice: 0,
     vehicle_no: "-",
@@ -23,10 +26,11 @@ const Print = () => {
   const [items, setItems] = useState([]);
 
   const onSubmit = () => {
-    getinvoice(inv)
+    getinvoice(inv, user, token)
       .then((data) => {
         if (data.length === 0) {
           setNext(false);
+          setMsg("Invoice not found");
         } else {
           setInvdet({
             invoice: data[0].invoice,
@@ -51,7 +55,7 @@ const Print = () => {
         console.log(err);
       });
 
-    getitem(inv)
+    getitem(inv, user, token)
       .then((data) => {
         setItems(data);
       })
@@ -193,6 +197,7 @@ const Print = () => {
             >
               Check
             </button>
+            <p className="h5 mt-5">{msg}</p>
           </div>
         </div>
       )}

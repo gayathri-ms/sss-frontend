@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { getinvoice } from "../helper/formHelper";
 
 const Dis_inv = () => {
   const [inv, setInv] = useState(0);
+  const { user, token } = isAuthenticated();
   const [details, setDetails] = useState({
     invoice: 0,
     vehicle_no: "-",
@@ -21,7 +23,7 @@ const Dis_inv = () => {
   });
   const [msg, setMsg] = useState(false);
   const onSubmit = () => {
-    getinvoice(inv)
+    getinvoice(inv, user, token)
       .then((data) => {
         if (data.length === 0) {
           setMsg(false);

@@ -4,6 +4,7 @@ import Header from "./header";
 import { createForm, companynames } from "../helper/formHelper";
 import { Link } from "react-router-dom";
 import Item from "./item";
+import { isAuthenticated } from "../helper/auth";
 
 const Form123 = ({ inv, setInv }) => {
   const [form, setForm] = useState({
@@ -19,8 +20,10 @@ const Form123 = ({ inv, setInv }) => {
   const [msg, setMsg] = useState("");
   const [companies, setCompanies] = useState([]);
 
+  const { user, token } = isAuthenticated();
+
   useEffect(() => {
-    companynames()
+    companynames(user, token)
       .then((data) => {
         setCompanies(data);
       })
@@ -55,7 +58,7 @@ const Form123 = ({ inv, setInv }) => {
     if (invoice && vehicle_no) {
       console.log(form);
 
-      createForm(form).then((data) => {
+      createForm(form, user, token).then((data) => {
         if (data.error) {
           // setvalues({ ...values, error: data.error });
           console.log("eroor in frt end", data.error);

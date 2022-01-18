@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { payment } from "../helper/formHelper";
 import Payment from "./payment";
 
 const Pay_com = () => {
   const [items, setItems] = useState([]);
+  const { user, token } = isAuthenticated();
 
   useEffect(() => {
-    payment()
+    payment(user, token)
       .then((data) => setItems(data))
       .catch((err) => console.log(err));
   }, []);

@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { createCompany } from "../helper/formHelper";
 
 const Company = () => {
+  const { user, token } = isAuthenticated();
+
   const [company, setCompany] = useState({
     company_name: "",
     address: "",
@@ -15,7 +18,7 @@ const Company = () => {
   const onsubmit = (e) => {
     e.preventDefault();
     console.log("submittes", company);
-    createCompany(company).then((data) => {
+    createCompany(company, user, token).then((data) => {
       if (data.error) {
         setMsg(data.error);
       } else {

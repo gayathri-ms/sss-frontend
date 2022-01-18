@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { isAuthenticated } from "../helper/auth";
 import { updatebalance, getinvoice } from "../helper/formHelper";
 
 const Updatebalance = () => {
   const [updateamt, setUpdateamt] = useState(0);
   const [inv, setInv] = useState(0);
+  const { user, token } = isAuthenticated();
+
   const [details, setDetails] = useState({
     invoice: 0,
     vehicle_no: "",
@@ -23,9 +26,9 @@ const Updatebalance = () => {
   const [msg, setMsg] = useState(false);
 
   const onCheck = (e) => {
-    getinvoice(inv)
+    getinvoice(inv, user, token)
       .then((data) => {
-        console.log("dat");
+        // console.log("dat");
         if (data.length === 0) setMsg(false);
         else {
           setDetails({
@@ -52,7 +55,7 @@ const Updatebalance = () => {
       });
   };
   const onSubmit = (e) => {
-    updatebalance(updateamt, inv)
+    updatebalance(updateamt, inv, user, token)
       .then((data) => {
         setDetails({
           invoice: data.invoice,
@@ -70,6 +73,7 @@ const Updatebalance = () => {
           gst: data.gst,
           amt_received: data.amt_received,
         });
+        setUpdateamt(0);
       })
       .catch((err) => {
         setMsg(true);
@@ -102,6 +106,7 @@ const Updatebalance = () => {
               <input
                 className="mx-3 my_primary p-2 h6"
                 type="number"
+                value={updateamt}
                 onChange={(e) => setUpdateamt(e.target.value)}
               />
             </div>
