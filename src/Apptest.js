@@ -136,34 +136,44 @@ export default function Apptest() {
                   ""
                 )}
 
-                {isAuthenticated() ? (
-                  <div className="nav__dropdown">
+                <div className="nav__dropdown">
+                  {isAuthenticated() ? (
                     <div className="nav__link">
                       <i className="bi bi-paypal nav__icon"></i>
                       <span className="nav__name">Payments</span>
                       <i className="bx bx-chevron-down nav__icon nav__dropdown-icon"></i>
                     </div>
+                  ) : (
+                    ""
+                  )}
 
-                    <div className="nav__dropdown-collapse">
-                      <div className="nav__dropdown-content">
+                  <div className="nav__dropdown-collapse">
+                    <div className="nav__dropdown-content">
+                      {isAuthenticated() ? (
                         <Link to="/balance" className="nav__dropdown-item">
                           Balance Sheet
                         </Link>
+                      ) : (
+                        ""
+                      )}
+                      {isAuthenticated() &&
+                      isAuthenticated().user.role === 1 ? (
                         <Link
                           to="/balanceupdate"
                           className="nav__dropdown-item"
                         >
                           Update Balance
                         </Link>
-                        {/* <a href="#" className="nav__dropdown-item">
+                      ) : (
+                        ""
+                      )}
+                      {/* <a href="#" className="nav__dropdown-item">
                           Accounts
                         </a> */}
-                      </div>
                     </div>
                   </div>
-                ) : (
-                  ""
-                )}
+                </div>
+
                 {isAuthenticated() ? (
                   <Link to="/print" className="nav__link active">
                     <i className="bx bx-printer nav__icon"></i>
