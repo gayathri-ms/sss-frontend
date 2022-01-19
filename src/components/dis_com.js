@@ -19,7 +19,7 @@ const Displaycomp = () => {
   }, []);
 
   const onSubmit = () => {
-    console.log(comp);
+    // console.log(comp);
     getByCompany(comp, user, token)
       .then((data) => setDetails(data))
       .catch((err) => console.log("errr", err));

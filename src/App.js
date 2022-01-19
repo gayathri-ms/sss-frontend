@@ -19,8 +19,6 @@ import Signin from "./components/signin";
 import { isAuthenticated } from "./helper/auth";
 import Signup from "./components/signup";
 
-//export const user = isAuthenticated().user;
-
 const App = () => {
   // const [items, setItems] = useState([]);
   // const [item, setItem] = useState({
@@ -35,9 +33,6 @@ const App = () => {
   return (
     <div className="App d-flex flex-column justify-content-center">
       {isAuthenticated() ? <Header /> : ""}
-
-      {/* <Displaydate /> */}
-      {/* <Displaycomp /> */}
 
       <Switch>
         <Route path="/" exact component={Home} />

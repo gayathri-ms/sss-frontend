@@ -29,7 +29,7 @@ const Item = ({ inv, setInv }) => {
       createitem(inv, item, user, token).then((data) => {
         if (data.error) {
           // setvalues({ ...values, error: data.error });
-          console.log("eroor in frt end", data.error);
+          // console.log("eroor in frt end", data.error);
           setMsg(data.error);
         } else {
           setItems([...items, item]);

@@ -3,7 +3,6 @@ import { API } from "../backend";
 //const { user, token } = isAuthenticated();
 
 export const createForm = (form, user, token) => {
-  console.log(`LINE NUMBER 4`);
   return fetch(`${API}/form/createform/${user._id}`, {
     method: "POST",
     headers: {
@@ -20,7 +19,6 @@ export const createForm = (form, user, token) => {
 };
 
 export const createCompany = (company, user, token) => {
-  console.log(`LINE NUMBER 4`);
   return fetch(`${API}/add/${user._id}`, {
     method: "POST",
     headers: {
@@ -52,7 +50,6 @@ export const companynames = (user, token) => {
 };
 
 export const createitem = (inv, item, user, token) => {
-  console.log(`LINE NUMBER 4`);
   return fetch(`${API}/item/createitem/${inv}/${user._id}`, {
     method: "POST",
     headers: {

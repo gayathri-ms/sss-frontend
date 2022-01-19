@@ -17,10 +17,10 @@ const Total = ({ inv, setInv }) => {
     e.preventDefault();
     if (gst) {
       updateform(gst, inv, user, token).then((data) => {
-        console.log("data>>>>>>>", data);
+        // console.log("data>>>>>>>", data);
 
         if (data.error) {
-          console.log("eroor in frt end", data.error);
+          // console.log("eroor in frt end", data.error);
           setMsg(data.error);
         } else {
           setForm({ ...form, total: data.total, grandtotal: data.grandtotal });

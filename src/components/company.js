@@ -17,7 +17,7 @@ const Company = () => {
   };
   const onsubmit = (e) => {
     e.preventDefault();
-    console.log("submittes", company);
+    // console.log("submittes", company);
     createCompany(company, user, token).then((data) => {
       if (data.error) {
         setMsg(data.error);

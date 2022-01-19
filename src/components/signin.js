@@ -11,21 +11,14 @@ const Signin = () => {
   const { email, password, didRedirect } = values;
 
   const [Msg, setMsg] = useState(false);
-
+  const [noti, setNoti] = useState("");
   const handelChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
 
   const performRedirect = () => {
-    // if (didRedirect) {
-    //   if (user && user.role === 1) {
-    //     return <Redirect to="/admin/dashboard" />;
-    //   } else {
-    //     return <Redirect to="/user/dashboard" />;
-    //   }
-    // }
     window.location.reload(false);
-    console.log("isAuthen", isAuthenticated());
+    // console.log("isAuthen", isAuthenticated());
     if (isAuthenticated()) {
       window.location.replace("http://localhost:3001/");
     }
@@ -35,11 +28,16 @@ const Signin = () => {
     e.preventDefault();
     signin({ email, password })
       .then((data) => {
-        authenticate(data);
-        setMsg(true);
-        setValues({ ...values, didRedirect: true });
+        if (data.err) {
+          setNoti("Incorrect email or password");
+          setValues({ ...values, email: "", password: "" });
+        } else {
+          authenticate(data, () => setMsg(true));
+          // setMsg(true);
+          // setValues({ ...values, didRedirect: true });
+        }
       })
-      .catch((err) => setMsg(err));
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -53,7 +51,7 @@ const Signin = () => {
                 style={{ borderRadius: "1rem" }}
               >
                 <div className="card-body p-5 text-center">
-                  <div className="mb-md-5 mt-md-4 pb-5">
+                  <div className=" mt-md-4 pb-5">
                     <h2 className="fw-bold mb-2 text-uppercase">Login</h2>
                     <p className="text-white-50 mb-5">
                       Please enter your login and password!
@@ -65,6 +63,7 @@ const Signin = () => {
                         type="email"
                         id="typeEmailX"
                         onChange={handelChange("email")}
+                        value={email}
                         className="form-control form-control-lg"
                       />
                     </div>
@@ -75,6 +74,7 @@ const Signin = () => {
                         type="password"
                         id="typePasswordX"
                         onChange={handelChange("password")}
+                        value={password}
                         className="form-control form-control-lg"
                       />
                     </div>
@@ -93,7 +93,9 @@ const Signin = () => {
                       Login
                     </button>
                   </div>
-
+                  <div className="h5 mb-4 text-capitalize text-danger">
+                    {noti}{" "}
+                  </div>
                   <div>
                     <p className="mb-0">
                       Don't have an account?{" "}

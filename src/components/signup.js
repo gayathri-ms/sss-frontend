@@ -21,7 +21,7 @@ const Signup = () => {
 
     signup(username, email, password)
       .then((data) => {
-        console.log("data is signup>>", data);
+        // console.log("data is signup>>", data);
         // setMsg(data)
         window.location.replace("http://localhost:3001/signin");
         setValues({ ...values, username: "", email: "", password: "" });
@@ -40,7 +40,7 @@ const Signup = () => {
                 style={{ borderRadius: "1rem" }}
               >
                 <div className="card-body p-5 text-center">
-                  <div className="mb-md-5 mt-md-4 pb-5">
+                  <div className="mt-md-4 pb-5">
                     <h2 className="fw-bold mb-2 text-uppercase">Signup</h2>
                     <p className="text-white-50 mb-5">
                       Please enter your login and password!
@@ -94,9 +94,9 @@ const Signup = () => {
                   <div>
                     <p className="mb-0">
                       {Msg}
-                      <Link to="/signin" className="text-white-50 fw-bold">
+                      {/* <Link to="/signin" className="text-white-50 fw-bold">
                         Signin
-                      </Link>
+                      </Link> */}
                     </p>
                   </div>
                 </div>

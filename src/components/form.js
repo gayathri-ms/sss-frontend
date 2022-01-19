@@ -42,7 +42,7 @@ const Form123 = ({ inv, setInv }) => {
   const onHandleChange = (e) => {
     const comp = e.target.value;
     const data = companies.filter((com) => com.company_name === comp);
-    console.log(data);
+    // console.log(data);
     setForm({
       ...form,
       consignor: data[0].company_name,
@@ -50,7 +50,7 @@ const Form123 = ({ inv, setInv }) => {
       gst_com: data[0].GST,
     });
 
-    console.log("form>>>>>", form);
+    // console.log("form>>>>>", form);
   };
 
   const onsubmit = (e) => {
@@ -61,7 +61,7 @@ const Form123 = ({ inv, setInv }) => {
       createForm(form, user, token).then((data) => {
         if (data.error) {
           // setvalues({ ...values, error: data.error });
-          console.log("eroor in frt end", data.error);
+          // console.log("eroor in frt end", data.error);
           setMsg(data.error);
         } else {
           setInv(form.invoice);

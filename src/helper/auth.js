@@ -21,7 +21,7 @@ export const signup = (username, email, password) => {
     });
 };
 export const signin = (user) => {
-  console.log("user", user);
+  // console.log("user", user);
   return fetch(`${API}/user/login`, {
     method: "POST",
     headers: {
