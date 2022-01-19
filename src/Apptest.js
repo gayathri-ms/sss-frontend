@@ -224,7 +224,9 @@ export default function Apptest() {
                     window.location.reload(false);
                     // console.log("isAuthen", isAuthenticated());
                     if (!isAuthenticated()) {
-                      window.location.replace("http://localhost:3001/");
+                      window.location.replace(
+                        "https://sss-frontend.herokuapp.com/"
+                      );
                     }
                   });
                 }}
