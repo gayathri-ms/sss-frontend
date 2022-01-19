@@ -352,3 +352,11 @@ a {
   font-family: "Moo Lah Lah", cursive;
   font-size: 1.5em;
 }
+.heading {
+  font-family: "Merriweather", serif;
+  font-size: 1.8em;
+}
+.head_img {
+  height: 10rem;
+  width: auto;
+}
