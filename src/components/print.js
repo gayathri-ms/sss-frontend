@@ -35,7 +35,7 @@ const Print = () => {
           setInvdet({
             invoice: data[0].invoice,
             vehicle_no: data[0].vehicle_no,
-            date: data[0].date,
+            date: data[0].dateformat,
             due_date: data[0].due_date,
             consignor: data[0].consignor,
             from: data[0].from,
@@ -74,7 +74,7 @@ const Print = () => {
               </div>
               <div className="col text-start">
                 <b> Date: </b>
-                {invdet.date.slice(0, 10)}
+                {invdet.date}
               </div>
               <div className="col text-start">
                 <b>Vehicle No:</b>{" "}
