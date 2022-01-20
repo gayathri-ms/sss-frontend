@@ -68,7 +68,7 @@ const Displaycomp = () => {
                 <tbody key={i}>
                   <tr>
                     <td>{it.invoice}</td>
-                    <td>{it.date.slice(0, 10)}</td>
+                    <td>{it.dateformat}</td>
                     <td>{it.vehicle_no}</td>
                     <td>{it.consignor}</td>
                     <td>{it.consignee}</td>

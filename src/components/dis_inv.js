@@ -47,7 +47,7 @@ const Dis_inv = () => {
           setDetails({
             invoice: data[0].invoice,
             vehicle_no: data[0].vehicle_no,
-            date: data[0].date,
+            date: data[0].dateformat,
             due_date: data[0].due_date,
             consignor: data[0].consignor,
             from: data[0].from,
@@ -104,7 +104,7 @@ const Dis_inv = () => {
             <tbody>
               <tr>
                 <td>{details.invoice}</td>
-                <td>{details.date.slice(0, 10)}</td>
+                <td>{details.date}</td>
                 <td>{details.vehicle_no}</td>
                 <td>{details.consignor}</td>
                 <td>{details.consignee}</td>

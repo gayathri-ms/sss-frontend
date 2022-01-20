@@ -34,7 +34,7 @@ const Updatebalance = () => {
           setDetails({
             invoice: data[0].invoice,
             vehicle_no: data[0].vehicle_no,
-            date: data[0].date,
+            date: data[0].dateformat,
             due_date: data[0].due_date,
             consignor: data[0].consignor,
             from: data[0].from,
@@ -60,7 +60,7 @@ const Updatebalance = () => {
         setDetails({
           invoice: data.invoice,
           vehicle_no: data.vehicle_no,
-          date: data.date,
+          date: data.dateformat,
           due_date: data.due_date,
           consignor: data.consignor,
           from: data.from,
