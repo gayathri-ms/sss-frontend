@@ -55,7 +55,7 @@ const Form123 = ({ inv, setInv }) => {
 
   const onsubmit = (e) => {
     e.preventDefault();
-    if (invoice && vehicle_no) {
+    if (vehicle_no) {
       console.log(form);
 
       createForm(form, user, token).then((data) => {
@@ -64,7 +64,7 @@ const Form123 = ({ inv, setInv }) => {
           // console.log("eroor in frt end", data.error);
           setMsg(data.error);
         } else {
-          setInv(form.invoice);
+          setInv(data.invoice);
           setForm({
             invoice: 0,
             vehicle_no: "",
@@ -79,7 +79,7 @@ const Form123 = ({ inv, setInv }) => {
         }
       });
     } else {
-      if (!invoice) setMsg("Enter the Invoice No");
+      // if (!invoice) setMsg("Enter the Invoice No");
       if (!vehicle_no) setMsg("Enter the vehicle no");
     }
   };
@@ -88,7 +88,7 @@ const Form123 = ({ inv, setInv }) => {
     <div className=" mx-2 d-flex flex-column  bd-highlight h-auto">
       <hr className="w-100 border border-1" />
       <div className="d-md-flex mt-2 w-100 flex-row justify-content-center">
-        <div className="mt-2">
+        {/* <div className="mt-2">
           <label className="h6 mx-2">Invoice No:</label>
           <input
             type="number"
@@ -96,7 +96,7 @@ const Form123 = ({ inv, setInv }) => {
             onChange={onHandle("invoice")}
             className="w-25 my_primary ml-2"
           />
-        </div>
+        </div> */}
         <div className="mt-2">
           <label className="h6 mx-2">Vehicle No:</label>
           <input
@@ -174,13 +174,6 @@ const Form123 = ({ inv, setInv }) => {
           />
 
           <div className="text-center">
-            <button
-              type="submit"
-              className="btn btn-outline-danger mt-3 btn-lg"
-              value="Next"
-            >
-              Submit
-            </button>
             {next ? (
               <button
                 className="btn btn-outline-danger mx-4 mt-3 btn-lg"
@@ -189,7 +182,13 @@ const Form123 = ({ inv, setInv }) => {
                 <Link to="/items">Next</Link>
               </button>
             ) : (
-              ""
+              <button
+                type="submit"
+                className="btn btn-outline-danger mt-3 btn-lg"
+                value="Next"
+              >
+                Submit
+              </button>
             )}
           </div>
         </form>
